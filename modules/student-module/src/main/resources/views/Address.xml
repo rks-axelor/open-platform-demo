@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+  
+  <grid model="com.axelor.student.db.Address" title="Address" name="address-grid" >
+		  <toolbar>
+		     <button onClick="Click me" prompt="Are You Sure(From Toolbar)?" name="clickMeBtn" title="Click Me!" icon="fa-print"/>
+		  </toolbar>
+		  <menubar>
+		  <menu title="action" >
+		  <item action="action" title="test"/>
+		  </menu>
+		  </menubar>
+		  <field name="address"/>
+		  <field name="student"/>
+		  <button onClick="Click me" prompt="Are You Sure?" name="clickMeBtn" title="Click Me!" icon="fa-print"/>
+  </grid>
+  
+  	<form model="com.axelor.student.db.Address" title="Address" name="address-form" width="large">
+		<panel name="mainPanel" colSpan="8">
+			<field name="address"/>
+			<!-- <panel-include view="school-form"/> -->
+		</panel>
+	</form>
+  </object-views>

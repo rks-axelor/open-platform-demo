@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<domain-models
+	xmlns="http://axelor.com/xml/ns/domain-models"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models 
+  http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
+
+	<module name="student" package="com.axelor.student.db"  />
+	<sequence name="name.order.sequence" initial="1" increment="1"
+		padding="5" prefix="SO" />
+	<entity name="Student" lang="java" sequential="true">
+		<string name="name" namecolumn="true" />
+		<string name="rollNumber" sequence="name.order.sequence" />
+		<integer name="classNumber" />
+		<string name="parentName" />
+		<many-to-one ref="com.axelor.student.db.School"
+			name="schoolname" title="SchoolName" />
+		<one-to-one ref="com.axelor.student.db.Address"
+			name="address" title="Address" />
+	</entity>
+
+
+</domain-models>
