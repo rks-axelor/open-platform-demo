@@ -5,21 +5,19 @@
   http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
   
   <cards name="student-card" model="com.axelor.student.db.Student" title="Student">
-            <field name="name"/>
+            <field name="fullName"/>
 		    <field name="rollNumber"/>
 		    <field name="classNumber"/>
 		     <field name="parentName"/>
 		     <field name="schoolname"/>
-		     <field name="address"/>
           <template>
 		             <![CDATA[
 		                <div class="span8 card-image">
-		                <strong>{{name}}</strong>
+		                <strong>{{fullName}}</strong>
 		                <strong>{{rollNumber}}</strong>
 		                <strong>{{classNumber}}</strong>
 		                <strong>{{parentName}}</strong>
-		                <strong>{{schoolname.schoolname}}</strong>
-		                <strong>{{address.address}}</strong>
+		                <strong>{{schoolname.schoolName}}</strong>
 		           		</div>
 		         	 ]]>    
           </template>

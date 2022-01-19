@@ -27,4 +27,8 @@
   			<view type="kanban" name="project-kanban"/>
   			<view type="form" name="project-form"/>
   			</action-view>
+  			<menuitem title="Students-tree" name="student-tree-root-student" parent="Demo" action="action.student-tree-root-student"/>
+  			<action-view name="action.student-tree-root-student" title="Student-Tree" model="com.axelor.student.db.Student">
+  			  <view type="tree" name="student-tree" />
+  			</action-view>
   </object-views>

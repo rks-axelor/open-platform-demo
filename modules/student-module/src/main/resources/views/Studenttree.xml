@@ -8,19 +8,16 @@
 		  <column name="studentname" type="string"/>
 		  <column name="rollNumber" type="string"/>
 		  <column name="classNumber" type="integer"/>
-		  <column name="schoolName" type="string"/>
-		  <column name="address" type="string"/>
+		  <column name="schoolname" type="reference"/>
+		  <column name="address" type="reference"/>
 	  <node model="com.axelor.student.db.Student">
 	  
-		  <field name="name" as="studentname"/>
+		  <field name="fullName" as="studentname"/>
 		  <field name="rollNumber" as="rollNumber"/>
 		  <field name="classNumber" as="classNumber"/>
-	 </node>
-     <node model="com.axelor.student.db.School">
-     <field name="schoolName" as="SchoolName"/>
-     </node>
-     <node model="com.axelor.student.db.Address">
-     <field name="address" as="Address"/>
+		  <field name="schoolname" as="schoolname"/>
+		  <field name="address" as="address"/>
+     
      </node>
   </tree>
 </object-views>

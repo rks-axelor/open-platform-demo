@@ -8,19 +8,30 @@
 		  <toolbar>
 		     <button onClick="Click me" prompt="Are You Sure(From Toolbar)?" name="clickMeBtn" title="Click Me!" icon="fa-print"/>
 		  </toolbar>
-		  <menubar>
-		  <menu title="action" >
-		  <item action="action" title="test"/>
-		  </menu>
-		  </menubar>
-		  <field name="address"/>
-		  <field name="student"/>
+			  <menubar>
+				  <menu title="action" >
+				     <item action="action" title="test"/>
+				  </menu>
+			  </menubar>
+				  <field name="street"/>
+		          <field name="area"/>
+		          <field name="city"/>
+		          <field name="state"/>
+		          <field name="zip"/>
+		          <field name="country"/>
+				  <field name="student"/>
 		  <button onClick="Click me" prompt="Are You Sure?" name="clickMeBtn" title="Click Me!" icon="fa-print"/>
   </grid>
   
   	<form model="com.axelor.student.db.Address" title="Address" name="address-form" width="large">
 		<panel name="mainPanel" colSpan="8">
-			<field name="address"/>
+			      <field name="street"/>
+		          <field name="area"/>
+		          <field name="city"/>
+		          <field name="state"/>
+		          <field name="zip"/>
+		          <field name="country"/>
+				  <field name="student"/>
 			<!-- <panel-include view="school-form"/> -->
 		</panel>
 	</form>

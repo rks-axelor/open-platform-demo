@@ -6,28 +6,39 @@
   
   <grid model="com.axelor.student.db.Student" title="Students" name="student-grid" canNew="true" canSave="true" canEdit="true" editable="true">
             
-		    <field name="name"/>
+		    
+		    <field name="fullName"/>
 		    <field name="rollNumber"/>
 		    <field name="classNumber"/>
 		     <field name="parentName"/>
 		     <field name="schoolname"/>
 		     <field name="address"/>
+		     <field name="dateOfBirth"/>
+		     
   </grid>
   <form model="com.axelor.student.db.Student" title="Student" name="student-form" >
   <panel>
           <help>This is help tag implementation</help><!-- -->
-		  <field name="name"/>
-		  <field name="rollNumber"/>
+		 <field name="fullName" readonly="false">
+			  <editor>
+			      <field name="title" colSpan="3"/>
+			      <field name="firstName" colSpan="4"/>
+			      <field name="lastName" colSpan="5"/>
+			  </editor>
+		 </field>
+		  <field name="rollNumber" readonly="true"/>
 		  <field name="classNumber"/>
 		  <separator colSpan="12"/>
 		  <field name="parentName"/>
+		  <field name="dateOfBirth"/>
   </panel>
 	  <panel-tabs>
-		  <panel name="details" title="Details">
-		      <field name="schoolname" />
-     		  <field name="address"/>
-		  
+		  <panel name="detail" title="School">
+		      <field name="schoolname" /> 
 		  </panel>
-	  </panel-tabs>
+		  <panel name="address" title="address">
+		  <field name="address" />
+		  </panel>
+		  </panel-tabs>
   </form>
   </object-views>

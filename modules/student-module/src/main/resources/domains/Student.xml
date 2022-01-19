@@ -9,10 +9,21 @@
 	<sequence name="name.order.sequence" initial="1" increment="1"
 		padding="5" prefix="SO" />
 	<entity name="Student" lang="java" sequential="true">
-		<string name="name" namecolumn="true" />
+		<string name="title" namecolumn="true" />
+		<string name="firstName" namecolumn="true" />
+		<string name="lastName" namecolumn="true" />
+		<string name="fullName" namecolumn="true" search="firstName,lastName">
+		<![CDATA[
+			    if (firstName == null && lastName == null)
+			      return null;
+			    else
+			        return title+ " " +firstName + " " + lastName;
+			    
+       ]]></string>
 		<string name="rollNumber" sequence="name.order.sequence" />
 		<integer name="classNumber" />
 		<string name="parentName" />
+		<date name="dateOfBirth"/>
 		<many-to-one ref="com.axelor.student.db.School"
 			name="schoolname" title="SchoolName" />
 		<one-to-one ref="com.axelor.student.db.Address"
