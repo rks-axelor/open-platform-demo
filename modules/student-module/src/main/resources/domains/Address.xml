@@ -16,7 +16,7 @@
   <string name="street" title="Street" namecolumn="true"/>
   <string name="area" title="Area" namecolumn="true"/>
   <string name="city" title="City" namecolumn="true"/>
-  <integer name="zip" title="Zip"/>
+  <integer name="zip" title="Zip" max="6" min="6"/>
   <enum name="state" ref="STATE"/>
   <string name="country" title="Country"></string>
   <string name="fullAddress" namecolumn="true" search="street,area,city,zip,state,country">

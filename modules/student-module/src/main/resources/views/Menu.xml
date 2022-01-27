@@ -7,15 +7,19 @@
   <menuitem title="Demo" name="Demo"/>
    		<menuitem title="Students" name="student-root-student" parent="Demo" action="action.student.root.student"/>
   			<action-view name="action.student.root.student" title="Students" model="com.axelor.student.db.Student">
-  			<view type="form" name="student-form"/>
   			<view type="grid" name="student-grid"/>
-  			<view type="tree" name="student-tree"/>
+  			<view type="form" name="student-form"/>
   			<view type="cards" name="student-card"/>
+  		    
+  			<view-param name="showArchived" value="true"/>
+  			<!-- <view-param name="details-view" value="true"/> --> <!--for merging form and grid view-->
+  			<view-param name="search-filters" value="student-search-filter"/>
   			</action-view>
   			<menuitem title="Schools" name="school-root-student" parent="Demo" action="action.school.root.student"/>
   			<action-view name="action.school.root.student" title="schools" model="com.axelor.student.db.School">
   			<view type="form" name="school-form"/>
   			<view type="grid" name="school-grid"/>
+  			<view type="chart" name="school-chart"/>
   			</action-view>
   			<menuitem title="Address" name="address-root-student" parent="Demo" action="action.address.root.student"/>
   			<action-view name="action.address.root.student" title="Address" model="com.axelor.student.db.Address">
@@ -30,5 +34,11 @@
   			<menuitem title="Students-tree" name="student-tree-root-student" parent="Demo" action="action.student-tree-root-student"/>
   			<action-view name="action.student-tree-root-student" title="Student-Tree" model="com.axelor.student.db.Student">
   			  <view type="tree" name="student-tree" />
+  			</action-view>
+  			<menuitem title="Students-custom" name="student-custom-root-student" parent="Demo" action="action.student-custom-root-student"/>
+  			<action-view name="action.student-custom-root-student" model="com.axelor.student.db.Student" title="Student" >
+  			  <view type="custom" name="student-custom"/>
+  			  
+  			 
   			</action-view>
   </object-views>

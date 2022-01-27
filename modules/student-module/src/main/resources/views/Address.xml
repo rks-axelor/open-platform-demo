@@ -13,7 +13,7 @@
 				     <item action="action" title="test"/>
 				  </menu>
 			  </menubar>
-				  <field name="street"/>
+				  <field name="street" />
 		          <field name="area"/>
 		          <field name="city"/>
 		          <field name="state"/>
@@ -23,16 +23,32 @@
 		  <button onClick="Click me" prompt="Are You Sure?" name="clickMeBtn" title="Click Me!" icon="fa-print"/>
   </grid>
   
-  	<form model="com.axelor.student.db.Address" title="Address" name="address-form" width="large">
-		<panel name="mainPanel" colSpan="8">
-			      <field name="street"/>
-		          <field name="area"/>
-		          <field name="city"/>
-		          <field name="state"/>
-		          <field name="zip"/>
-		          <field name="country"/>
+  	<form model="com.axelor.student.db.Address" title="Address" name="address-form" width="large" onNew="action-address-fill-country">
+		<panel name="mainPanel" colSpan="4">
+			      <field name="street" colSpan="4" onChange="action-address-validate-street"/>
+		          <field name="area" colSpan="4" onChange="action-address-validate-area"/>
+		          <field name="city" colSpan="4" onChange="action-address-validate-zip"/>
+		          <field name="state" colSpan="4"/>
+		          <field name="zip" colSpan="4" />
+		          <field name="country" colSpan="4"/>
 				  <field name="student"/>
 			<!-- <panel-include view="school-form"/> -->
 		</panel>
 	</form>
+	<!-- Record Action -->
+	<action-record name="action-address-fill-country" model="com.axelor.student.db.Address">
+	 <field name="country" expr="India" if="country == null" />
+	</action-record>
+	
+	<!-- Validate Action -->
+	<action-validate name="action-address-validate-zip">
+	<alert message="city can't be null" if="city == null"/>
+	</action-validate>
+	<action-validate name="action-address-validate-street">
+	<error message="street can't be null" if="street == null"/>
+	</action-validate>
+	<!-- Condition Action -->
+	<action-condition name="action-address-validate-area">
+	<check field="area" if="area == null" error="area can't be null"/>
+	</action-condition>
   </object-views>

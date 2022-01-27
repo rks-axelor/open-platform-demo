@@ -12,11 +12,14 @@
 		    <field name="classNumber"/>
 		     <field name="parentName"/>
 		     <field name="schoolname"/>
-		     <field name="address"/>
+		     <field name="address" domain="self.student is null"/>
 		     <field name="dateOfBirth"/>
-		     
+		    
   </grid>
-  <form model="com.axelor.student.db.Student" title="Student" name="student-form" >
+  <form model="com.axelor.student.db.Student" title="Student" name="student-form" onSave="action-student-method-check-possibility" onNew="action-student-method-check-script">
+  <toolbar>
+  <button onClick="print-studen-detail" name="btnPrint" showIf="id" title="Print" icon="fa-print"/>
+  </toolbar>
   <panel>
           <help>This is help tag implementation</help><!-- -->
 		 <field name="fullName" readonly="false">
@@ -27,7 +30,7 @@
 			  </editor>
 		 </field>
 		  <field name="rollNumber" readonly="true"/>
-		  <field name="classNumber"/>
+		  <field name="classNumber" />
 		  <separator colSpan="12"/>
 		  <field name="parentName"/>
 		  <field name="dateOfBirth"/>
@@ -37,8 +40,60 @@
 		      <field name="schoolname" /> 
 		  </panel>
 		  <panel name="address" title="address">
-		  <field name="address" />
+		  <field name="address" domain="self.student is null"/>
 		  </panel>
 		  </panel-tabs>
+		<!--   <panel-dashlet action="action-student-custom" name="student-custom" title="Custom"/>
+          -->
   </form>
+  
+ <!--  <custom name="student-custom" title="Students">
+	      
+		    <dataset type="jpql">
+			    <![CDATA[
+			    select sum(self.class_number) as total from student_student self;
+			    ]]>
+		    </dataset>
+		    <template>
+		       <![CDATA[ 
+		                   <div class="report-data">
+		                   	 <h1>{{first.total}}</h1>
+                         </div>
+
+						  ]]>
+						  
+			     </template>
+  </custom> -->
+  <search-filters name="student-search-filter" model="com.axelor.student.db.Student" title="Students">
+    <field name="dateOfBirth"/>
+	  <filter title="Date Of Birth is not null">
+		  <domain>
+		      self.dateOfBirth != null
+		  </domain> 
+	  </filter>
+	  
+  </search-filters>
+  <!-- Method Action -->
+	  <action-method name="action-student-method-check-possibility">
+	  <call class="com.axelor.student.web.StudentController" method="checkPossibility"/>
+	  </action-method>
+  
+   <!-- Script Action -->
+	  <action-script name="action-student-method-check-script" model="com.axelor.student.db.Student">
+	    <script language="js" transactional="true">
+		     <![CDATA[
+		        var req = $request;
+		        var res = $response;
+		        var so = req.context;
+		        res.setAttr("classNumber","value",10);
+		        
+		     ]]></script>
+	  
+	  </action-script>
+	  <!-- Report Action -->
+	<action-report output="sd-${date}${time}" name="print-studen-detail" design="order.rptdesign" format="pdf">
+	 <param name="studentId" expr="eval: id"/>
+	</action-report> 
+	
+  
   </object-views>

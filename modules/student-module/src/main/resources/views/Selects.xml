@@ -9,7 +9,7 @@
    <option value="1">Validate</option>
    <option value="2">In Progress</option>
    <option value="3">Finish</option>
-   <option value="4">Cancle</option>
+   <option value="4">Cancel</option>
   
   </selection>
   </object-views>

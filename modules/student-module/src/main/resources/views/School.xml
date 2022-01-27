@@ -13,5 +13,23 @@
 				  <panel-related field="studentList"/>
 				
 			  </panel>
+			  <panel sidebar="true">
+          <button onClick="action-student-import-action" title="Import" name="Import"/>
+         </panel>
 	  </form>
+	  <action-import name="action-student-import-action" config="webapp/data/csv-config.xml">
+	  <import file="school.csv" provider="" name="titles"/>
+	  </action-import>
+	  <chart name="school-chart" title="School">
+	<dataset type="sql">
+	<![CDATA[
+	     select student_school.school_name ,count(student_student.schoolname) as students
+		 from student_school inner join student_student 
+ 		 on student_school.id = student_student.schoolname 
+ 		 group by student_school.school_name;
+	]]>
+	</dataset>
+	<category key="students" type="text"/>
+	<series key="school_name" type="text"/>
+	</chart> 
   </object-views>

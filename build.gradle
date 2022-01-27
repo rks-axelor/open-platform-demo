@@ -39,10 +39,9 @@ allprojects {
   targetCompatibility = 1.8
 }
 
-dependencies {
-  implementation project(":modules:student-module")
-  
-}
+dependencies{
+compile project(':modules:student-module')
+ }
 
 wrapper {
   gradleVersion = "5.6.4"
