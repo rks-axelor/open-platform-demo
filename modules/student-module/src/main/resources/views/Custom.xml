@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+   <custom name="student-custom" title="Students">
+	      
+		    <dataset type="sql">
+			    <![CDATA[
+			    select count(self.id) as total from student_student self
+			    ]]>
+		    </dataset>
+		    <template>
+		       <![CDATA[ 
+		                   <div class="report-data">
+		                   	<h1>Total Number Of Students</h1><h1>{{first.total}}</h1>
+                         </div>
+
+						  ]]>
+						  
+			     </template>
+  </custom>
+  
+  </object-views>

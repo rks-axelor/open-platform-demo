@@ -19,7 +19,6 @@
   			<action-view name="action.school.root.student" title="schools" model="com.axelor.student.db.School">
   			<view type="form" name="school-form"/>
   			<view type="grid" name="school-grid"/>
-  			<view type="chart" name="school-chart"/>
   			</action-view>
   			<menuitem title="Address" name="address-root-student" parent="Demo" action="action.address.root.student"/>
   			<action-view name="action.address.root.student" title="Address" model="com.axelor.student.db.Address">
@@ -36,9 +35,11 @@
   			  <view type="tree" name="student-tree" />
   			</action-view>
   			<menuitem title="Students-custom" name="student-custom-root-student" parent="Demo" action="action.student-custom-root-student"/>
-  			<action-view name="action.student-custom-root-student" model="com.axelor.student.db.Student" title="Student" >
-  			  <view type="custom" name="student-custom"/>
-  			  
-  			 
+  			<action-view name="action.student-custom-root-student" model="com.axelor.student.db.Student" title="Student-custom" >
+  			 <view type="dashboard" name="student-dashboard"/>
+  			</action-view>
+  			<menuitem title="school-chart" name="school-chart-root-student" parent="Demo" action="action.school.chart.root.student"/>
+  			<action-view name="action.school.chart.root.student" model="com.axelor.student.db.School" title="School-chart">
+  			<view type="dashboard" name="school-dashboard"/>
   			</action-view>
   </object-views>

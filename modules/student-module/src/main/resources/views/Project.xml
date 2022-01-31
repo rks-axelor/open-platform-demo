@@ -28,7 +28,7 @@
 	  <form model="com.axelor.student.db.Project" title="Project" name="project-form" onLoad="action-project-attr-set-on-validate">
 	  <panel name="mainPanel" title="Main Panel" colSpan="8">
 	     <field name="statusSelect" showTitle="false" widget="NavSelect" colSpan="12" onChange="action-project-set-attr-on-validate"/>
-	     <field name="name"/>
+	     <field name="name" />
 	     <field name="percentage"/>
 	     <field name="description" widget="html" colSpan="12"/>
 	   </panel>

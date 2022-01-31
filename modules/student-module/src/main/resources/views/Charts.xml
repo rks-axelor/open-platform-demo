@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views
+  http://axelor.com/xml/ns/object-views/object-views_5.4.xsd">
+  
+  <chart name="school-chart" title="School">
+	<dataset type="sql">
+	<![CDATA[
+	     select student_school.school_name ,count(student_student.schoolname) as students
+		 from student_school inner join student_student 
+ 		 on student_school.id = student_student.schoolname 
+ 		 group by student_school.school_name;
+	]]>
+	</dataset>
+	<category key="school_name" type="text"/>
+	<series key="students" type="pie"/>
+	</chart> 
+  </object-views>

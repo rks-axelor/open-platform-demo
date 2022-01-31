@@ -43,27 +43,10 @@
 		  <field name="address" domain="self.student is null"/>
 		  </panel>
 		  </panel-tabs>
-		<!--   <panel-dashlet action="action-student-custom" name="student-custom" title="Custom"/>
-          -->
+		
   </form>
   
- <!--  <custom name="student-custom" title="Students">
-	      
-		    <dataset type="jpql">
-			    <![CDATA[
-			    select sum(self.class_number) as total from student_student self;
-			    ]]>
-		    </dataset>
-		    <template>
-		       <![CDATA[ 
-		                   <div class="report-data">
-		                   	 <h1>{{first.total}}</h1>
-                         </div>
-
-						  ]]>
-						  
-			     </template>
-  </custom> -->
+ 
   <search-filters name="student-search-filter" model="com.axelor.student.db.Student" title="Students">
     <field name="dateOfBirth"/>
 	  <filter title="Date Of Birth is not null">

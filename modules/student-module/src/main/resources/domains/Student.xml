@@ -5,10 +5,10 @@
 	xsi:schemaLocation="http://axelor.com/xml/ns/domain-models 
   http://axelor.com/xml/ns/domain-models/domain-models_5.4.xsd">
 
-	<module name="student" package="com.axelor.student.db"  />
+	<module name="student" package="com.axelor.student.db"/>
 	<sequence name="name.order.sequence" initial="1" increment="1"
 		padding="5" prefix="SO" />
-	<entity name="Student" lang="java" sequential="true">
+	<entity name="Student" lang="java" sequential="true" >
 		<string name="title" namecolumn="true" />
 		<string name="firstName" namecolumn="true" />
 		<string name="lastName" namecolumn="true" />

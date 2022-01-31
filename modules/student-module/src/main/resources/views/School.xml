@@ -6,6 +6,7 @@
   
 	  <grid model="com.axelor.student.db.School" title="Schools" name="school-grid" canEdit="true">
 	      <field name="schoolName"/> 
+	      <field name="studentList"/>
 	  </grid>
 	  <form model="com.axelor.student.db.School" title="School" name="school-form">
 			  <panel>
@@ -14,22 +15,19 @@
 				
 			  </panel>
 			  <panel sidebar="true">
-          <button onClick="action-student-import-action" title="Import" name="Import"/>
+          <button onClick="action-school-import-action" title="Import" name="Import"/>
+          <button onClick="action-school-export-action" name="Export" title="Export"/>
          </panel>
 	  </form>
-	  <action-import name="action-student-import-action" config="webapp/data/csv-config.xml">
+	  <action-import name="action-school-import-action" config="data/csv-config.xml">
 	  <import file="school.csv" provider="" name="titles"/>
 	  </action-import>
-	  <chart name="school-chart" title="School">
-	<dataset type="sql">
-	<![CDATA[
-	     select student_school.school_name ,count(student_student.schoolname) as students
-		 from student_school inner join student_student 
- 		 on student_school.id = student_student.schoolname 
- 		 group by student_school.school_name;
-	]]>
-	</dataset>
-	<category key="students" type="text"/>
-	<series key="school_name" type="text"/>
-	</chart> 
+	  <action-export name="action-school-export-action" output="${schoolName}/${date}">
+	  <export
+		   name="${schoolName}.xml"
+		   if="schoolName != null"
+	      template="data/export-school-detail.st"
+	      engine="ST"/>
+	  </action-export>
+	  
   </object-views>
